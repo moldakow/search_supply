@@ -7,8 +7,10 @@ package com.moldakowski.supply_search.printer;
 import jakarta.servlet.http.HttpServletResponse;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -20,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
  */
 @Service
 public class PrinterService {
-
+      
     @Autowired
     PrinterRepository printerRepository;
 
@@ -34,16 +36,14 @@ public class PrinterService {
         return printerDtoList;
     }
 
-    @PutMapping("update/{id}")
-    public ResponseEntity<Void> updatePrinter(Long id, @RequestBody Printer printer) {
-        // jeżeli id istnieje w bazie danych
-        if (printerRepository.findById(id) != null) {
-            printerRepository.save(printer);
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.badRequest().build();
-        }
+ 
 
+    public void save(Printer printer) {
+        printerRepository.save(printer);
+}
+
+    Object findById(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
+    
 }

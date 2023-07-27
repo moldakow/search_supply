@@ -5,7 +5,10 @@
  */
 package com.moldakowski.supply_search.printer;
 
+import java.util.Collection;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -15,4 +18,7 @@ import org.springframework.stereotype.Repository;
 ///@Repository
 @Repository
 public interface PrinterRepository extends JpaRepository<Printer, Long> {
+  @Query(name = "printerIds", value = "SELECT id From printer", nativeQuery = true)
+   List<Long> findExistingIds();
+
 }
