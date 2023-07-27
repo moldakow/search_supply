@@ -5,12 +5,14 @@
  */
 package com.moldakowski.supply_search.printer;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 /**
  *
  * @author Marcin
  */
 ///@Repository
-
-public interface PrinterRepository //extends JpaRepository<Printer, Long> {
-{
+@Repository
+public interface PrinterRepository extends JpaRepository<Printer, Long> {
 }

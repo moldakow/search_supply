@@ -16,10 +16,10 @@ import java.util.List;
  *
  * @author Marcin
  */
-    @Entity
+  //  @Entity
     public class Supply {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
   
     String original_name;
